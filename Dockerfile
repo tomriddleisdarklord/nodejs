@@ -11,7 +11,7 @@ RUN npm install --only=production
 
 COPY src /app/src
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD [ "npm", "start" ]
 
