@@ -1,17 +1,6 @@
-FROM node
-#test again
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get clean
-
-RUN mkdir /app
-WORKDIR /app
-
-COPY package.json /app/
-RUN npm install --only=production
-
-COPY src /app/src
-
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
-
+FROM node:14
+WORKDIR /usr/src/app
+COPY package*.json app.js ./
+RUN npm install
+EXPOSE 8000
+CMD ["node", "app.js"]
